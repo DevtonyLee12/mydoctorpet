@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.blueAccent[100],
           leading: IconButton(
             icon: Icon(
-              CupertinoIcons.arrow_left,
+              CupertinoIcons.paw, //발자국 수정
               color: Colors.black,
             ),
             onPressed: () {},
