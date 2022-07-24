@@ -1,4 +1,4 @@
-# my_pet_doctor
+# mypet_doctor
 
 A new Flutter project.
 
