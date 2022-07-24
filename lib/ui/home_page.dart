@@ -1,6 +1,6 @@
 // 홈
 import 'package:flutter/material.dart';
-import 'package:mypet_doctor/ui/doc_list_page.dart';
+import 'package:mypet_doctor/ui/doc_list/doc_list_page.dart';
 
 class homePage extends StatelessWidget {
   const homePage({Key? key}) : super(key: key);

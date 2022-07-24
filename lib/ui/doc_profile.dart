@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mypet_doctor/ui/review_page.dart';
 
 class DocProfile extends StatefulWidget {
   const DocProfile({Key? key}) : super(key: key);
@@ -374,7 +375,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             ),
           ),
           Container(
-            height: 500,
+            height: 350,
             child: TabBarView(
               controller: tabController,
               children: [
@@ -502,27 +503,40 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             ),
           ),
 
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.only(top: 3),
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                "리뷰 작성",
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: Color(0xff00A0C3),
-                minimumSize: Size(200, 60),
-                // shape: RoundedRectangleBorder(
-                //     // shape : 버튼의 모양을 디자인 하는 기능
-                //     borderRadius: BorderRadius.circular(25.0)),
-                // maximumSize: Size(100, 50),
-              ),
-            ),
-          )
+          // Container(
+          //   width: double.infinity,
+          //   margin: EdgeInsets.only(top: 3),
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(builder: (context) => ReviewPage()),
+          //       );
+          //     },
+          //     child: Text(
+          //       "리뷰 작성",
+          //     ),
+          //     style: ElevatedButton.styleFrom(
+          //       primary: Color(0xff00A0C3),
+          //       minimumSize: Size(200, 60),
+          //       // shape: RoundedRectangleBorder(
+          //       //     // shape : 버튼의 모양을 디자인 하는 기능
+          //       //     borderRadius: BorderRadius.circular(25.0)),
+          //       // maximumSize: Size(100, 50),
+          //     ),
+          //   ),
+          // )
           // 설명
         ],
         // ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        icon: Icon(Icons.add),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ReviewPage()),
+        ),
+        label: Text('리뷰 작성'),
       ),
     );
   }
