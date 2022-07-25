@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mypet_doctor/ui/review_page.dart';
 
 class DocProfile extends StatefulWidget {
   const DocProfile({Key? key}) : super(key: key);
@@ -700,7 +701,10 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             margin: EdgeInsets.only(top: 3),
             child: ElevatedButton(
               onPressed: () {
-                print('리뷰를 작성하러 가볼까요?');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => ReviewPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 primary: Color(0xff00A0C3),
