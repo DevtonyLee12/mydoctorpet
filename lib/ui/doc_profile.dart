@@ -1,6 +1,6 @@
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mypet_doctor/ui/review_page.dart';
 
 class DocProfile extends StatefulWidget {
   const DocProfile({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
         title: Text(
           "어디어디 동물병원",
           style: TextStyle(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+              color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         elevation: 3,
@@ -85,7 +85,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             "김아무개 주치의",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 16,
               color: Colors.black,
             ),
             textAlign: TextAlign.center,
@@ -96,7 +96,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             child: Container(
               // color: Color.fromARGB(255, 29, 143, 143),
               width: 200,
-              height: 50,
+              height: 30,
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -176,7 +176,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             child: Container(
               // color: Color.fromARGB(255, 185, 29, 29),
               width: 160,
-              height: 30,
+              height: 20,
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -185,6 +185,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                       child: Text(
                         "어디어디 동물병원",
+                        style: TextStyle(fontSize: 12),
                       ),
                     ),
                     Padding(
@@ -375,7 +376,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             ),
           ),
           Container(
-            height: 350,
+            height: 500,
             child: TabBarView(
               controller: tabController,
               children: [
@@ -402,7 +403,10 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                                 child: Container(
                                   width: 180,
                                   height: 80,
-                                  color: Color.fromARGB(255, 252, 249, 210),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color:
+                                          Color.fromARGB(255, 252, 249, 210)),
                                   child: Column(
                                     children: [
                                       Padding(
@@ -433,7 +437,10 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                                 child: Container(
                                   width: 180,
                                   height: 80,
-                                  color: Color.fromARGB(255, 252, 249, 210),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color:
+                                          Color.fromARGB(255, 252, 249, 210)),
                                   child: Column(
                                     children: [
                                       Padding(
@@ -467,7 +474,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                     Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Container(
-                          height: 300,
+                          height: 30,
                           color: Color.fromARGB(255, 249, 247, 247),
                           child: Text(
                             "지도",
@@ -491,11 +498,196 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
-                    color: Color.fromARGB(255, 245, 238, 238),
-                    child: Text(
-                      "박리뷰어",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.blue, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            height: 25,
+                            child: Row(
+                              children: [
+                                Image.network(
+                                  "https://image.shutterstock.com/image-photo/female-veterinarian-examining-cute-mini-260nw-1257887227.jpg",
+                                  width: 20,
+                                  height: 20,
+                                  fit: BoxFit.fill,
+                                ),
+                                Text(
+                                  "박리뷰어",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Spacer(),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      CupertinoIcons.paw,
+                                      size: 25,
+                                      color: Colors.blueGrey,
+                                    ),
+                                    Icon(
+                                      CupertinoIcons.paw,
+                                      size: 25,
+                                      color: Colors.blueGrey,
+                                    ),
+                                    Icon(
+                                      CupertinoIcons.paw,
+                                      size: 25,
+                                      color: Colors.blueGrey,
+                                    ),
+                                    Icon(
+                                      CupertinoIcons.paw,
+                                      size: 25,
+                                      color: Colors.blueGrey,
+                                    ),
+                                    Icon(
+                                      CupertinoIcons.paw,
+                                      size: 25,
+                                      color: Colors.blueGrey,
+                                    ),
+                                    Text(
+                                      " 5.0",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.only(top: 30),
+                            height: 25,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "전문성",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Spacer(),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.only(top: 10),
+                            height: 25,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "친절도",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Spacer(),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Icon(
+                                        CupertinoIcons.paw,
+                                        size: 25,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.only(top: 20),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    color: Color.fromARGB(255, 255, 253, 253),
+                                    child: Text(
+                                      "리뷰",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Text(
+                                        "안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요..."),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -503,40 +695,30 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             ),
           ),
 
-          // Container(
-          //   width: double.infinity,
-          //   margin: EdgeInsets.only(top: 3),
-          //   child: ElevatedButton(
-          //     onPressed: () {
-          //       Navigator.push(
-          //         context,
-          //         MaterialPageRoute(builder: (context) => ReviewPage()),
-          //       );
-          //     },
-          //     child: Text(
-          //       "리뷰 작성",
-          //     ),
-          //     style: ElevatedButton.styleFrom(
-          //       primary: Color(0xff00A0C3),
-          //       minimumSize: Size(200, 60),
-          //       // shape: RoundedRectangleBorder(
-          //       //     // shape : 버튼의 모양을 디자인 하는 기능
-          //       //     borderRadius: BorderRadius.circular(25.0)),
-          //       // maximumSize: Size(100, 50),
-          //     ),
-          //   ),
-          // )
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.only(top: 3),
+            child: ElevatedButton(
+              onPressed: () {
+                print('리뷰를 작성하러 가볼까요?');
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xff00A0C3),
+                minimumSize: Size(200, 60),
+                // shape: RoundedRectangleBorder(
+                //     // shape : 버튼의 모양을 디자인 하는 기능
+                //     borderRadius: BorderRadius.circular(25.0)),
+                // maximumSize: Size(100, 50),
+              ),
+              child: Text(
+                "리뷰 작성",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
           // 설명
         ],
         // ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        icon: Icon(Icons.add),
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ReviewPage()),
-        ),
-        label: Text('리뷰 작성'),
       ),
     );
   }
