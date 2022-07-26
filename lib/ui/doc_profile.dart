@@ -21,13 +21,15 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
     super.initState();
   }
 
+  List<dynamic> reviewList = []; // 리뷰 작성 page에서 리뷰를 받아서 list에 보관
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(CupertinoIcons.back,
-              color: Color.fromARGB(255, 33, 117, 185)),
+              color: Color.fromARGB(2552, 115, 210, 243)),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -39,7 +41,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
         ),
         centerTitle: true,
         elevation: 3,
-        backgroundColor: Color.fromARGB(255, 166, 197, 248),
+        backgroundColor: Color.fromARGB(255, 115, 210, 243),
       ),
       body: ListView(
         // child: Column(
@@ -496,202 +498,226 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                         ))
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.blue, width: 3),
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: 25,
-                            child: Row(
-                              children: [
-                                Image.network(
-                                  "https://image.shutterstock.com/image-photo/female-veterinarian-examining-cute-mini-260nw-1257887227.jpg",
-                                  width: 20,
-                                  height: 20,
-                                  fit: BoxFit.fill,
-                                ),
-                                Text(
-                                  "박리뷰어",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Spacer(),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      CupertinoIcons.paw,
-                                      size: 25,
-                                      color: Colors.blueGrey,
-                                    ),
-                                    Icon(
-                                      CupertinoIcons.paw,
-                                      size: 25,
-                                      color: Colors.blueGrey,
-                                    ),
-                                    Icon(
-                                      CupertinoIcons.paw,
-                                      size: 25,
-                                      color: Colors.blueGrey,
-                                    ),
-                                    Icon(
-                                      CupertinoIcons.paw,
-                                      size: 25,
-                                      color: Colors.blueGrey,
-                                    ),
-                                    Icon(
-                                      CupertinoIcons.paw,
-                                      size: 25,
-                                      color: Colors.blueGrey,
-                                    ),
-                                    Text(
-                                      " 5.0",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.only(top: 30),
-                            height: 25,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 30),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "전문성",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Spacer(),
-                                  Row(
+                reviewList.isEmpty // reviewList가 비어있으면,
+                    ? Container(
+                        alignment: Alignment(0.0, -0.7),
+                        decoration: BoxDecoration(),
+                        height: 1,
+                        width: double.infinity,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "첫 리뷰를 남겨주세요",
+                                style: TextStyle(
+                                    fontSize: 17, color: Colors.black),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(CupertinoIcons.paw)
+                            ]))
+                    : Expanded(
+                        //reviewList가 있으면
+                        child: ListView.builder(
+                          itemCount: reviewList.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: Column(
                                     children: [
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
+                                      Container(
+                                        width: double.infinity,
+                                        height: 25,
+                                        child: Row(
+                                          children: [
+                                            Image.network(
+                                              "https://image.shutterstock.com/image-photo/female-veterinarian-examining-cute-mini-260nw-1257887227.jpg",
+                                              width: 20,
+                                              height: 20,
+                                              fit: BoxFit.fill,
+                                            ),
+                                            Text(
+                                              "박리뷰어",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Spacer(),
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  CupertinoIcons.paw,
+                                                  size: 25,
+                                                  color: Colors.blueGrey,
+                                                ),
+                                                Icon(
+                                                  CupertinoIcons.paw,
+                                                  size: 25,
+                                                  color: Colors.blueGrey,
+                                                ),
+                                                Icon(
+                                                  CupertinoIcons.paw,
+                                                  size: 25,
+                                                  color: Colors.blueGrey,
+                                                ),
+                                                Icon(
+                                                  CupertinoIcons.paw,
+                                                  size: 25,
+                                                  color: Colors.blueGrey,
+                                                ),
+                                                Icon(
+                                                  CupertinoIcons.paw,
+                                                  size: 25,
+                                                  color: Colors.blueGrey,
+                                                ),
+                                                Text(
+                                                  " 5.0",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
+                                      Container(
+                                        width: double.infinity,
+                                        margin: EdgeInsets.only(top: 30),
+                                        height: 25,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 30),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                "전문성",
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Spacer(),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
+                                      Container(
+                                        width: double.infinity,
+                                        margin: EdgeInsets.only(top: 10),
+                                        height: 25,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 30),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                "친절도",
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Spacer(),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                  Icon(
+                                                    CupertinoIcons.paw,
+                                                    size: 25,
+                                                    color: Colors.blueGrey,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
-                                      ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
+                                      Container(
+                                        width: double.infinity,
+                                        margin: EdgeInsets.only(top: 20),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 30),
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                width: double.infinity,
+                                                color: Color.fromARGB(
+                                                    255, 255, 253, 253),
+                                                child: Text(
+                                                  reviewList[index],
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.only(top: 10),
-                            height: 25,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 30),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "친절도",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Spacer(),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
-                                      ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
-                                      ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
-                                      ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
-                                      ),
-                                      Icon(
-                                        CupertinoIcons.paw,
-                                        size: 25,
-                                        color: Colors.blueGrey,
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.only(top: 20),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 30),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: double.infinity,
-                                    color: Color.fromARGB(255, 255, 253, 253),
-                                    child: Text(
-                                      "리뷰",
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Text(
-                                        "안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요..."),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                            );
+                          },
+                        ),
+                      )
               ],
             ),
           ),
@@ -700,11 +726,16 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             width: double.infinity,
             margin: EdgeInsets.only(top: 3),
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
+              onPressed: () async {
+                String? job = await Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) => ReviewPage()),
                 );
+                if (job != null) {
+                  setState(() {
+                    reviewList.add(job);
+                  });
+                }
               },
               style: ElevatedButton.styleFrom(
                 primary: Color(0xff00A0C3),

@@ -5,8 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mypet_doctor/function/rating_function/ratingStar.dart';
 
-class ReviewPage extends StatelessWidget {
+class ReviewPage extends StatefulWidget {
   const ReviewPage({Key? key}) : super(key: key);
+
+  @override
+  State<ReviewPage> createState() => _ReviewPageState();
+}
+
+class _ReviewPageState extends State<ReviewPage> {
+  final _reviewPageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -82,11 +89,13 @@ class ReviewPage extends StatelessWidget {
                         scrollDirection: Axis.vertical,
                         reverse: false,
                         child: TextField(
+                          controller: _reviewPageController,
                           maxLines: 5,
                           minLines: 1,
                           decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: '  소중한 리뷰를 남겨주세요~!'),
+                              hintText:
+                                  '진료받은 서비스에 대해 전문성, 친절도 등 솔직한 리뷰를 상세히 남겨주세요! '),
                         ),
                       ),
                     ),
@@ -97,8 +106,30 @@ class ReviewPage extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pop(
-                                context); //실제로는 작성 완료 시 해당의사 평점이 업데이트 되야함, 수정 필요
+                            setState(() {
+                              String job = _reviewPageController.text;
+
+                              job.isEmpty
+                                  ? showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          actions: [
+                                            TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text("확인"))
+                                          ],
+                                          title: Text(
+                                            "리뷰가 작성되지 않았습니다!",
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                          ),
+                                        );
+                                      })
+                                  : Navigator.pop(context, job);
+                            });
                           },
                           child: Text(
                             "작성 완료",
