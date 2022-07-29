@@ -1,6 +1,8 @@
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:mypet_doctor/ui/review_page.dart';
 
 class DocProfile extends StatefulWidget {
@@ -22,6 +24,8 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
   }
 
   List<dynamic> reviewList = []; // 리뷰 작성 page에서 리뷰를 받아서 list에 보관
+  final Stream<QuerySnapshot> _memoStream =
+      FirebaseFirestore.instance.collection('memos').snapshots();
 
   @override
   Widget build(BuildContext context) {
@@ -178,6 +182,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             padding: const EdgeInsets.symmetric(vertical: 1),
             child: Container(
               // color: Color.fromARGB(255, 185, 29, 29),
+
               width: 160,
               height: 20,
               child: Center(
@@ -498,13 +503,19 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                         ))
                   ],
                 ),
-                reviewList.isEmpty // reviewList가 비어있으면,
-                    ? Container(
-                        alignment: Alignment(0.0, -0.7),
-                        decoration: BoxDecoration(),
-                        height: 1,
-                        width: double.infinity,
-                        child: Row(
+                StreamBuilder<QuerySnapshot>(
+                    stream: _memoStream,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (!snapshot.hasData)
+                      // reviewList가 비어있으면,
+                      {
+                        return Container(
+                          alignment: Alignment(0.0, -0.7),
+                          decoration: BoxDecoration(),
+                          height: 1,
+                          width: double.infinity,
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
@@ -516,11 +527,20 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                                 width: 10,
                               ),
                               Icon(CupertinoIcons.paw)
-                            ]))
-                    : Expanded(
-                        //reviewList가 있으면
+                            ],
+                          ),
+                        );
+                      }
+
+                      //reviewList가 있으면
+
+                      return Expanded(
+                        //if(snapshot.hasdata) 구문을 쓰면 listview가 실행되지 않는다.
+                        // 다음과 같은 오류가 떠서, 그냥 if 문을 지우고, return을 삽입하니 작동했음
+                        //'Widget', is a potentially non-nullable type. Try adding either a return or a throw statement at the end
+
                         child: ListView.builder(
-                          itemCount: reviewList.length,
+                          itemCount: snapshot.data?.docs.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(20.0),
@@ -699,7 +719,8 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                                                 color: Color.fromARGB(
                                                     255, 255, 253, 253),
                                                 child: Text(
-                                                  reviewList[index],
+                                                  snapshot.data!.docs[index]
+                                                      ['content'],
                                                   style: TextStyle(
                                                       fontSize: 12,
                                                       fontWeight:
@@ -717,7 +738,8 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                             );
                           },
                         ),
-                      )
+                      );
+                    })
               ],
             ),
           ),
@@ -726,16 +748,11 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
             width: double.infinity,
             margin: EdgeInsets.only(top: 3),
             child: ElevatedButton(
-              onPressed: () async {
-                String? job = await Navigator.push(
+              onPressed: () {
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) => ReviewPage()),
                 );
-                if (job != null) {
-                  setState(() {
-                    reviewList.add(job);
-                  });
-                }
               },
               style: ElevatedButton.styleFrom(
                 primary: Color(0xff00A0C3),

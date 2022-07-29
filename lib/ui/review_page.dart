@@ -1,9 +1,23 @@
 // 리뷰
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mypet_doctor/function/rating_function/ratingStar.dart';
+
+class Memo {
+  String? content;
+  String? wdate;
+
+  Memo(this.content, this.wdate);
+}
+
+void _insertMemo(Memo memo) {
+  FirebaseFirestore.instance
+      .collection("memos")
+      .add({'content': memo.content, 'wdate': memo.wdate});
+}
 
 class ReviewPage extends StatefulWidget {
   const ReviewPage({Key? key}) : super(key: key);
@@ -107,9 +121,10 @@ class _ReviewPageState extends State<ReviewPage> {
                       child: ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              String job = _reviewPageController.text;
+                              var memo = Memo(_reviewPageController.text,
+                                  DateTime.now().toString());
 
-                              job.isEmpty
+                              _reviewPageController.text.isEmpty
                                   ? showDialog(
                                       context: context,
                                       builder: (context) {
@@ -128,7 +143,8 @@ class _ReviewPageState extends State<ReviewPage> {
                                           ),
                                         );
                                       })
-                                  : Navigator.pop(context, job);
+                                  : Navigator.pop(context, memo);
+                              _insertMemo(memo);
                             });
                           },
                           child: Text(
