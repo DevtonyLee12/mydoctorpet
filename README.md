@@ -18,3 +18,18 @@ A new Flutter project.
 - ui 폴더의 내부는 화면을 구성하는 코드들이 있습니다.
 - function 폴더의 내부에는 기능별 하위 폴더로 정리하여 모았습니다.
 - widget_test.dart 의 충돌 버그를 수정하였습니다.
+
+
+## 2022-07-30
+- naver api 적용
+- https://github.com/DevtonyLee12/mydoctorpet/blob/naverapi/android/app/src/main/AndroidManifest.xml#L20
+
+ meta-data 두개로 수정
+<!-- 네이버api 를 사용하기 위해 추가한 meta-data -->
+<meta-data
+                android:name="com.naver.maps.map.CLIENT_ID"
+                android:value="2l5ywk38hk" />
+<!-- 기존에 있던 앱을 빌드하기 위해 있는 meta-data -->
+ <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />

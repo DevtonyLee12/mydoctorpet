@@ -1,6 +1,8 @@
 // 홈
 import 'package:flutter/material.dart';
+import 'package:mypet_doctor/function/naver_map.dart/naverMap.dart';
 import 'package:mypet_doctor/ui/doc_list/doc_list_page.dart';
+import 'package:naver_map_plugin/naver_map_plugin.dart';
 
 class homePage extends StatelessWidget {
   const homePage({Key? key}) : super(key: key);
@@ -133,7 +135,7 @@ class homePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => docList()),
+                                    builder: (context) => NaverMapTest()),
                               );
                             },
                             child: Text(
