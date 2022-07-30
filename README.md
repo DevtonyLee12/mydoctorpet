@@ -18,3 +18,9 @@ A new Flutter project.
 - ui 폴더의 내부는 화면을 구성하는 코드들이 있습니다.
 - function 폴더의 내부에는 기능별 하위 폴더로 정리하여 모았습니다.
 - widget_test.dart 의 충돌 버그를 수정하였습니다.
+
+
+## 2022-07-30 / 23:17
+main.dart 파일에 bottomNavigationBar 기능을 추가하였습니다.
+-main.dart 의 myApp class 에서 지정한 모든 페이지는 바텀 네비게이션 바가 생성됩니다.
+- 마이펫 페이지 목업 제작이 필요합니다. 
