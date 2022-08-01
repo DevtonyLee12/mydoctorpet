@@ -14,6 +14,7 @@ class DocProfile extends StatefulWidget {
 
 class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
   late TabController tabController;
+
   @override
   void initState() {
     tabController = TabController(
@@ -23,9 +24,10 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
     super.initState();
   }
 
-  List<dynamic> reviewList = []; // 리뷰 작성 page에서 리뷰를 받아서 list에 보관
-  final Stream<QuerySnapshot> _memoStream =
-      FirebaseFirestore.instance.collection('memos').snapshots();
+  final Stream<QuerySnapshot> _memoStream = FirebaseFirestore.instance
+      .collection('memos')
+      .orderBy('wdate', descending: true)
+      .snapshots(); //시간 순서대로 하기위해서는 orderyBy를 사용해야 한다.
 
   @override
   Widget build(BuildContext context) {
@@ -507,6 +509,7 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                     stream: _memoStream,
                     builder: (BuildContext context,
                         AsyncSnapshot<QuerySnapshot> snapshot) {
+                      final documents = snapshot.data?.docs ?? [];
                       if (!snapshot.hasData)
                       // reviewList가 비어있으면,
                       {
@@ -540,8 +543,13 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                         //'Widget', is a potentially non-nullable type. Try adding either a return or a throw statement at the end
 
                         child: ListView.builder(
-                          itemCount: snapshot.data?.docs.length,
+                          itemCount: documents.length,
                           itemBuilder: (context, index) {
+                            final doc = documents[index];
+
+                            String content = doc.get('content');
+                            String wdate = doc.get('wdate');
+
                             return Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: Container(
@@ -719,8 +727,32 @@ class _DocProfile extends State<DocProfile> with TickerProviderStateMixin {
                                                 color: Color.fromARGB(
                                                     255, 255, 253, 253),
                                                 child: Text(
-                                                  snapshot.data!.docs[index]
-                                                      ['content'],
+                                                  content,
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: double.infinity,
+                                        margin: EdgeInsets.only(top: 20),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 30),
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                width: double.infinity,
+                                                color: Color.fromARGB(
+                                                    255, 255, 253, 253),
+                                                child: Text(
+                                                  wdate,
+                                                  textAlign: TextAlign.right,
                                                   style: TextStyle(
                                                       fontSize: 12,
                                                       fontWeight:

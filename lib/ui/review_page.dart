@@ -4,19 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:intl/date_time_patterns.dart';
 import 'package:mypet_doctor/function/rating_function/ratingStar.dart';
+import 'package:intl/intl.dart';
 
 class Memo {
   String? content;
-  String? wdate;
+  String? createdDateString;
 
-  Memo(this.content, this.wdate);
+  Memo(this.content, this.createdDateString);
 }
 
 void _insertMemo(Memo memo) {
   FirebaseFirestore.instance
       .collection("memos")
-      .add({'content': memo.content, 'wdate': memo.wdate});
+      .add({'content': memo.content, 'wdate': memo.createdDateString});
 }
 
 class ReviewPage extends StatefulWidget {
@@ -121,8 +123,14 @@ class _ReviewPageState extends State<ReviewPage> {
                       child: ElevatedButton(
                           onPressed: () {
                             setState(() {
+                              final now = DateTime.now().toString();
+                              DateTime createdDate = DateTime.parse(now);
+                              String createdDateString = DateFormat.yMd('en_US')
+                                  .add_jm()
+                                  .format(createdDate);
+
                               var memo = Memo(_reviewPageController.text,
-                                  DateTime.now().toString());
+                                  createdDateString);
 
                               _reviewPageController.text.isEmpty
                                   ? showDialog(
