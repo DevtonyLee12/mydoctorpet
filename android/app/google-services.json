@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "560818738070",
+    "project_id": "mydoctorpet",
+    "storage_bucket": "mydoctorpet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560818738070:android:893392cf8ce4cfc86a83b7",
+        "android_client_info": {
+          "package_name": "com.dev.kjh.my_pet_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560818738070-p6j3j2te4jvmva06en9ahq1t6rebqa7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKmxbRojqoqheZEZr4o1ERwlg_MfmOu7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560818738070-p6j3j2te4jvmva06en9ahq1t6rebqa7g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "560818738070-0346quu9tc48lf4mh2gabolle7beigj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mypetdoctor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560818738070:android:bd830cfdab8ab53c6a83b7",
+        "android_client_info": {
+          "package_name": "com.example.my_pet_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560818738070-p6j3j2te4jvmva06en9ahq1t6rebqa7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKmxbRojqoqheZEZr4o1ERwlg_MfmOu7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560818738070-p6j3j2te4jvmva06en9ahq1t6rebqa7g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "560818738070-0346quu9tc48lf4mh2gabolle7beigj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mypetdoctor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
