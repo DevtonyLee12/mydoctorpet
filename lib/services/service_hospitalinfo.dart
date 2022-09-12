@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:mypet_doctor/ui/review/review_page.dart';
-
 import '../model/db_model_hospitalinfo.dart';
 import '../model/db_model_memo.dart';
 

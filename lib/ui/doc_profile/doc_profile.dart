@@ -220,142 +220,125 @@ class _DocProfileDetail extends State<DocProfileDetail>
 
       // 주치의 평점 영역 (파란색 컨테이너 박스 안)
       Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          width: double.infinity,
-          height: 100,
-          decoration: BoxDecoration(
-              color: Color.fromARGB(255, 224, 239, 247),
-              borderRadius: BorderRadius.circular(20)),
-          child: Center(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10, top: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "4.6",
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            CupertinoIcons.paw,
-                            size: 25,
-                            color: Colors.blueGrey,
-                          ),
-                          Icon(
-                            CupertinoIcons.paw,
-                            size: 25,
-                            color: Colors.blueGrey,
-                          ),
-                          Icon(
-                            CupertinoIcons.paw,
-                            size: 25,
-                            color: Colors.blueGrey,
-                          ),
-                          Icon(
-                            CupertinoIcons.paw,
-                            size: 25,
-                            color: Colors.blueGrey,
-                          ),
-                          Icon(
-                            CupertinoIcons.paw,
-                            size: 25,
-                            color: Colors.blueGrey,
-                          ),
-                          Text(
-                            " (34)",
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ],
+        padding: const EdgeInsets.all(20.0),
+        child: Center(
+          child: Container(
+            width: double.infinity,
+            height: 100,
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 224, 239, 247),
+                borderRadius: BorderRadius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          CupertinoIcons.paw,
+                          size: 25,
+                          color: Color.fromRGBO(59, 107, 164, 1),
+                        ),
+                        Text(
+                          "4.6",
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "전문성",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
-                    Row(
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30.0),
+                    child: Column(
                       children: [
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "전문성",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "친절도",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                                Icon(
+                                  CupertinoIcons.paw,
+                                  size: 18,
+                                  color: Colors.blueGrey,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "친절도",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                        Icon(
-                          CupertinoIcons.paw,
-                          size: 18,
-                          color: Colors.blueGrey,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -593,8 +576,8 @@ class _DocProfileDetail extends State<DocProfileDetail>
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(CupertinoIcons.back,
-              color: Color.fromARGB(2552, 115, 210, 243)),
+          icon:
+              Icon(CupertinoIcons.back, color: Color.fromRGBO(59, 107, 164, 1)),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -602,11 +585,14 @@ class _DocProfileDetail extends State<DocProfileDetail>
         title: Text(
           widget.doctorInformations.name,
           style: TextStyle(
-              color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),
+            color: Color.fromRGBO(0, 0, 0, 1),
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+          ),
         ),
         centerTitle: true,
         elevation: 3,
-        backgroundColor: Color.fromARGB(255, 115, 210, 243),
+        backgroundColor: Color.fromRGBO(130, 187, 255, 1),
       ),
       body: ListView(
           // child: Column(

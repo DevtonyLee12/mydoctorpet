@@ -8,7 +8,7 @@ class ReviewWidget extends StatelessWidget {
   const ReviewWidget({Key? key, this.review}) : super(key: key);
 
   final Memo? review;
-  final Memo? review
+  // final Memo? review
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class ReviewWidget extends StatelessWidget {
                           onRatingUpdate: (ratingpawone) {},
                         ),
                         Text(
-                          "$AAA",
+                          "${review?.ratingAverage}",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         )

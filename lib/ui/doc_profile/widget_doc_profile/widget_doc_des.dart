@@ -5,19 +5,17 @@ class DocDes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            height: 10,
+    return Column(
+      children: [
+        Container(
+          height: 10,
+        ),
+        Container(
+          child: Row(
+            children: [],
           ),
-          Container(
-            child: Row(
-              children: [],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

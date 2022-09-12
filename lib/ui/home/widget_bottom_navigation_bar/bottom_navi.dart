@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:mypet_doctor/ui/home_page.dart';
-import 'package:mypet_doctor/ui/widget_bottom_navigation_bar/bottom_navi_button.dart';
+import 'package:mypet_doctor/ui/home/home_page.dart';
+import '../../doc_list/doc_list_page.dart';
+import '../widget_bottom_navigation_bar/bottom_navi_button.dart';
 
 class BottomNavi extends StatefulWidget {
   BottomNavi({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _BottomNavi extends State<BottomNavi> {
   Widget build(BuildContext context) {
     return Container(
       height: 70,
-      color: Color.fromRGBO(240, 240, 240, 1),
+      color: Color.fromRGBO(245, 245, 245, 1),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -24,11 +24,11 @@ class _BottomNavi extends State<BottomNavi> {
             linkPage: homePage(),
           ),
           BottomNaviButton(
-            iconType: CupertinoIcons.add,
-            linkPage: homePage(),
+            iconType: CupertinoIcons.person_fill,
+            linkPage: docList(),
           ),
           BottomNaviButton(
-            iconType: CupertinoIcons.home,
+            iconType: CupertinoIcons.search,
             linkPage: homePage(),
           ),
         ],

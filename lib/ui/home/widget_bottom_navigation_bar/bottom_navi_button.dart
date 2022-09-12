@@ -1,8 +1,4 @@
-// import 'dart:js';
-
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mypet_doctor/ui/home_page.dart';
 
 class BottomNaviButton extends StatelessWidget {
   BottomNaviButton({
